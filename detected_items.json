@@ -1,42 +1,93 @@
 [
   {
-    "name": "Strength Potion",
-    "count": 1
+    "name": "Sharpening Stone",
+    "x-coord": 1396,
+    "y-coord": 345,
+    "board": "enemies_board",
+    "position": 6
   },
   {
-    "name": "Sapphire",
-    "count": 1
+    "name": "Tazidian Dagger",
+    "x-coord": 1274,
+    "y-coord": 601,
+    "board": "your_board",
+    "position": 6
   },
   {
-    "name": "Energy Potion",
-    "count": 1
+    "name": "Bottled Lightning",
+    "x-coord": 1155,
+    "y-coord": 600,
+    "board": "your_board",
+    "position": 5
   },
   {
-    "name": "Frost Potion",
-    "count": 1
+    "name": "Venomander",
+    "x-coord": 554,
+    "y-coord": 599,
+    "board": "your_board",
+    "position": 1
   },
   {
-    "name": "Vitality Potion",
-    "count": 1
+    "name": "Venomander",
+    "x-coord": 1395,
+    "y-coord": 599,
+    "board": "your_board",
+    "position": 7
   },
   {
-    "name": "Weaselpede",
-    "count": 1
+    "name": "Bar of Gold",
+    "x-coord": 674,
+    "y-coord": 344,
+    "board": "enemies_board",
+    "position": 2
   },
   {
-    "name": "Black Ice",
-    "count": 1
+    "name": "Bar of Gold",
+    "x-coord": 1274,
+    "y-coord": 344,
+    "board": "enemies_board",
+    "position": 5
   },
   {
-    "name": "Calcinator",
-    "count": 1
+    "name": "Philosopher s Stone",
+    "x-coord": 794,
+    "y-coord": 599,
+    "board": "your_board",
+    "position": 3
   },
   {
-    "name": "Potion Distillery",
-    "count": 1
+    "name": "Philosopher s Stone",
+    "x-coord": 674,
+    "y-coord": 600,
+    "board": "your_board",
+    "position": 2
   },
   {
-    "name": "Library",
-    "count": 1
+    "name": "Cinders",
+    "x-coord": 554,
+    "y-coord": 343,
+    "board": "enemies_board",
+    "position": 1
+  },
+  {
+    "name": "Candles",
+    "x-coord": 912,
+    "y-coord": 600,
+    "board": "your_board",
+    "position": 4
+  },
+  {
+    "name": "Cutlass",
+    "x-coord": 792,
+    "y-coord": 346,
+    "board": "enemies_board",
+    "position": 3
+  },
+  {
+    "name": "Cutlass",
+    "x-coord": 1032,
+    "y-coord": 345,
+    "board": "enemies_board",
+    "position": 4
   }
 ]

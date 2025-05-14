@@ -1,13 +1,14 @@
 import cv2
 import numpy as np
-import json, requests, os
+import json, os
 from PIL import Image,features
 import concurrent.futures
+from operator import itemgetter
 
 
 board_img = cv2.imread('board1.jpeg', cv2.IMREAD_UNCHANGED)
 board2_img = cv2.imread('board2.jpeg', cv2.IMREAD_UNCHANGED)
-mak_img = cv2.imread('board3.jpeg', cv2.IMREAD_UNCHANGED)
+mak_img = cv2.imread('board2.jpeg', cv2.IMREAD_UNCHANGED)
 test_img = cv2.imread('./item_images/Medium/Calcinator.png', cv2.IMREAD_UNCHANGED)
 base_path = "item_images"
 sizes = ["Small", "Medium", "Large"]
@@ -36,9 +37,10 @@ def process_image(file_path, size, board_img):
     if img is None:
         print(f"Error reading {file_path} (file may be corrupt or not a valid image)")
         return
-    count = compare_images(board_img, img, size)
-    if count > 0:
-        detected_items.append({"name": extract_file_string(file_path), "count": count})
+    items = compare_images(board_img, img, size)
+    if len(items) > 0:
+        for item in items:
+            detected_items.append({"name": extract_file_string(file_path), "x-coord": int(item[0]), "y-coord": int(item[1])})
 
 def extract_file_string(file_path):
     filename = os.path.basename(file_path)             
@@ -82,7 +84,7 @@ def compare_images(board_image, image, imageSize, threshold = .6):
     for (x, y, w, h) in rectangles:
         cv2.rectangle(board_image, (x,y), (x+w, y+h), (0,255,255), 2)
     
-    return len(rectangles)
+    return rectangles
 
 def detect_items_on_board(board_img):
     for size in sizes:
@@ -91,8 +93,25 @@ def detect_items_on_board(board_img):
             continue  # Skip if folder doesn't exist
         process_folder(folder_path, size, board_img)
 
+    sort_items(detected_items,board_img.shape[0])
     with open("detected_items.json", "w") as f:
         json.dump(detected_items, f, indent=2)
+
+def sort_items(items, board_height):
+    for item in items:
+        item["board"] = "your_board" if item["y-coord"] > board_height / 2 else "enemies_board"
+
+    your_board_items = [item for item in items if item["board"] == "your_board"]
+    enemy_board_items = [item for item in items if item["board"] == "enemies_board"]
+
+    # Sort by x-coordinate and assign positions
+    for board_items in [your_board_items, enemy_board_items]:
+        board_items.sort(key=itemgetter("x-coord"))
+        for idx, item in enumerate(board_items, start=1):
+            item["position"] = idx
+    
+    items = your_board_items + enemy_board_items
+    return items
 
 if __name__ == "__main__":
     detect_items_on_board(mak_img)
