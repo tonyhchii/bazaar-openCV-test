@@ -22,13 +22,13 @@ options.add_argument("--window-size=1920,1080")
 driver = webdriver.Chrome(options=options)
 driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
 
-url = "https://bazaardb.gg/search?c=items"
+url = "https://www.howbazaar.gg/items?isShowingAdvancedFilters=false"
 driver.get(url)
 
 data = []
 previous_count = 0
 scroll_attempts = 0
-max_attempts = 15  # Increased max attempts
+max_attempts = 10 
 scroll_pause_time = 1.5  # Base wait time
 
 # Get initial height
@@ -80,24 +80,29 @@ except Exception as e:
 
 # Final collection of all items
 soup = BeautifulSoup(driver.page_source, 'html.parser')
-items = soup.find_all('div', class_='_ah')
+items = soup.find_all('div', class_='shadow-md')
 
 for item in items:
-    try:
-        name_tag = item.find('h3', class_='_an')
-        name = name_tag.get_text(strip=True) if name_tag else None
-        
-        img_tag = item.select_one('div._aA img[src^="https://s.bazaardb.gg"]')
-        img_url = img_tag['src'] if img_tag else None
-        
-        if name and img_url:
-            data.append({
-                "name": name,
-                "image_src": img_url
-            })
-    except Exception as e:
-        print(f"Error processing item: {str(e)}")
+    name_div = item.select_one(".text-2xl")
+    name = name_div.text.strip() if name_div else "Unknown"
 
+    img_tag = item.select_one("img.object-fill")
+    img_url = img_tag["src"] if img_tag else "No Image"
+
+    tag_divs = item.select("div.text-xs")
+    size = None
+    for tag in tag_divs:
+        tag_text = tag.get_text(strip=True)
+        if tag_text in ["Small", "Medium", "Large"]:
+            size = tag_text
+            break
+
+    data.append({
+        "name": name,
+        "image": img_url,
+        "size": size or "Not Specified"
+        })
+    
 driver.quit()
 
 # Save to JSON
