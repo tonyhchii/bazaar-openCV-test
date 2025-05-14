@@ -1,38 +1,42 @@
 [
   {
-    "name": "Sharpening Stone",
+    "name": "Strength Potion",
     "count": 1
   },
   {
-    "name": "Tazidian Dagger",
+    "name": "Sapphire",
     "count": 1
   },
   {
-    "name": "Bottled Lightning",
+    "name": "Energy Potion",
     "count": 1
   },
   {
-    "name": "Venomander",
-    "count": 2
-  },
-  {
-    "name": "Bar of Gold",
-    "count": 2
-  },
-  {
-    "name": "Philosopher s Stone",
-    "count": 2
-  },
-  {
-    "name": "Cinders",
+    "name": "Frost Potion",
     "count": 1
   },
   {
-    "name": "Candles",
+    "name": "Vitality Potion",
     "count": 1
   },
   {
-    "name": "Cutlass",
-    "count": 2
+    "name": "Weaselpede",
+    "count": 1
+  },
+  {
+    "name": "Black Ice",
+    "count": 1
+  },
+  {
+    "name": "Calcinator",
+    "count": 1
+  },
+  {
+    "name": "Potion Distillery",
+    "count": 1
+  },
+  {
+    "name": "Library",
+    "count": 1
   }
 ]

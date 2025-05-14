@@ -7,7 +7,7 @@ import concurrent.futures
 
 board_img = cv2.imread('board1.jpeg', cv2.IMREAD_UNCHANGED)
 board2_img = cv2.imread('board2.jpeg', cv2.IMREAD_UNCHANGED)
-mak_img = cv2.imread('board2.jpeg', cv2.IMREAD_UNCHANGED)
+mak_img = cv2.imread('board3.jpeg', cv2.IMREAD_UNCHANGED)
 test_img = cv2.imread('./item_images/Medium/Calcinator.png', cv2.IMREAD_UNCHANGED)
 base_path = "item_images"
 sizes = ["Small", "Medium", "Large"]
@@ -31,12 +31,12 @@ def display_image(image, imageName):
     cv2.waitKey()
     cv2.destroyAllWindows()
 
-def process_image(file_path, size):
+def process_image(file_path, size, board_img):
     img = cv2.imread(file_path)
     if img is None:
         print(f"Error reading {file_path} (file may be corrupt or not a valid image)")
         return
-    count = compare_images(mak_img, img, size)
+    count = compare_images(board_img, img, size)
     if count > 0:
         detected_items.append({"name": extract_file_string(file_path), "count": count})
 
@@ -46,12 +46,12 @@ def extract_file_string(file_path):
     pretty_name = name.replace('_', ' ') 
     return pretty_name
 
-def process_folder(folder_path, size):
+def process_folder(folder_path, size, board_img):
     with concurrent.futures.ThreadPoolExecutor() as executor:
         for filename in os.listdir(folder_path):
             file_path = os.path.join(folder_path, filename)
             if os.path.isfile(file_path):
-                executor.submit(process_image, file_path, size)
+                executor.submit(process_image, file_path, size, board_img)
 
 def get_center_vertical_strip(image, height_scale=0.55, width_scale=0.65):
     h, w = image.shape[:2]  # Get height and width of the image
@@ -84,14 +84,18 @@ def compare_images(board_image, image, imageSize, threshold = .6):
     
     return len(rectangles)
 
-if __name__ == "__main__":
+def detect_items_on_board(board_img):
     for size in sizes:
         folder_path = os.path.join(base_path, size)
         if not os.path.exists(folder_path):
             continue  # Skip if folder doesn't exist
-        process_folder(folder_path, size)
+        process_folder(folder_path, size, mak_img)
+
     with open("detected_items.json", "w") as f:
         json.dump(detected_items, f, indent=2)
+
+if __name__ == "__main__":
+    detect_items_on_board(mak_img)
     display_image(mak_img, "mak")
 
     
