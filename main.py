@@ -89,7 +89,7 @@ def detect_items_on_board(board_img):
         folder_path = os.path.join(base_path, size)
         if not os.path.exists(folder_path):
             continue  # Skip if folder doesn't exist
-        process_folder(folder_path, size, mak_img)
+        process_folder(folder_path, size, board_img)
 
     with open("detected_items.json", "w") as f:
         json.dump(detected_items, f, indent=2)
