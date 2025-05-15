@@ -26,7 +26,6 @@ class ItemDetector:
         # ImageProcessor.display_image(image)
         result = cv2.matchTemplate(roi, image, cv2.TM_CCOEFF_NORMED)
         min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
-
         w = image.shape[1]
         h = image.shape[0]
 

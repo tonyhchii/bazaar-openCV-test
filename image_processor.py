@@ -39,3 +39,4 @@ class ImageProcessor:
         y_start = (h - roi_h) // 2      # Calculate the top Y-coordinate to center it vertically
         x_start = (w - roi_w) // 2 # Calculate top X-coordinate
         return image[y_start:y_start+roi_h, x_start:x_start+roi_w], (x_start, y_start)
+    

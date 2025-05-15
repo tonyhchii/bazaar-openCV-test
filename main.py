@@ -37,6 +37,5 @@ if __name__ == "__main__":
     detector = ItemDetector()
     detector.detect_items_on_board(mak_img)
     ImageProcessor.display_image(mak_img, "mak")
-    
 
 
