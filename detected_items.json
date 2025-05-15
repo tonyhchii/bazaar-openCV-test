@@ -1,92 +1,105 @@
 [
   {
     "name": "Sharpening Stone",
-    "x-coord": 1396,
-    "y-coord": 345,
+    "x_coord": 1397,
+    "y_coord": 353,
+    "score": 0.7866948843002319,
     "board": "enemies_board",
     "position": 6
   },
   {
     "name": "Tazidian Dagger",
-    "x-coord": 1274,
-    "y-coord": 601,
+    "x_coord": 1274,
+    "y_coord": 606,
+    "score": 0.772942841053009,
     "board": "your_board",
     "position": 6
   },
   {
     "name": "Bottled Lightning",
-    "x-coord": 1155,
-    "y-coord": 600,
+    "x_coord": 1154,
+    "y_coord": 607,
+    "score": 0.7846318483352661,
     "board": "your_board",
     "position": 5
   },
   {
     "name": "Venomander",
-    "x-coord": 554,
-    "y-coord": 599,
+    "x_coord": 553,
+    "y_coord": 604,
+    "score": 0.7605392932891846,
     "board": "your_board",
     "position": 1
   },
   {
     "name": "Venomander",
-    "x-coord": 1395,
-    "y-coord": 599,
+    "x_coord": 1394,
+    "y_coord": 604,
+    "score": 0.763910174369812,
     "board": "your_board",
     "position": 7
   },
   {
     "name": "Bar of Gold",
-    "x-coord": 674,
-    "y-coord": 344,
+    "x_coord": 673,
+    "y_coord": 350,
+    "score": 0.8530961275100708,
     "board": "enemies_board",
     "position": 2
   },
   {
     "name": "Bar of Gold",
-    "x-coord": 1274,
-    "y-coord": 344,
+    "x_coord": 1274,
+    "y_coord": 351,
+    "score": 0.8525108695030212,
     "board": "enemies_board",
     "position": 5
   },
   {
     "name": "Philosopher s Stone",
-    "x-coord": 794,
-    "y-coord": 599,
+    "x_coord": 794,
+    "y_coord": 605,
+    "score": 0.6947941184043884,
     "board": "your_board",
     "position": 3
   },
   {
     "name": "Philosopher s Stone",
-    "x-coord": 674,
-    "y-coord": 600,
+    "x_coord": 674,
+    "y_coord": 605,
+    "score": 0.6329092979431152,
     "board": "your_board",
     "position": 2
   },
   {
     "name": "Cinders",
-    "x-coord": 554,
-    "y-coord": 343,
+    "x_coord": 553,
+    "y_coord": 352,
+    "score": 0.8837690949440002,
     "board": "enemies_board",
     "position": 1
   },
   {
     "name": "Candles",
-    "x-coord": 912,
-    "y-coord": 600,
+    "x_coord": 917,
+    "y_coord": 603,
+    "score": 0.843147873878479,
     "board": "your_board",
     "position": 4
   },
   {
     "name": "Cutlass",
-    "x-coord": 792,
-    "y-coord": 346,
+    "x_coord": 797,
+    "y_coord": 349,
+    "score": 0.6659599542617798,
     "board": "enemies_board",
     "position": 3
   },
   {
     "name": "Cutlass",
-    "x-coord": 1032,
-    "y-coord": 345,
+    "x_coord": 1037,
+    "y_coord": 349,
+    "score": 0.663994550704956,
     "board": "enemies_board",
     "position": 4
   }
